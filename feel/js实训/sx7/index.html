@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dataShow {
+            width: 300px;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        #dataShow td, th {
+            border: 1px black solid;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+        }
+
+        #dataShow #dataPages {
+            float: right;
+            list-style: none;
+            margin-right: 30px;
+        }
+
+        #dataShow #dataPages li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        #dataShow #dataPages li a {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<table id="dataShow">
+    <caption><h2>学生成绩表</h2></caption>
+    <tr>
+        <th>
+            <input type="checkbox" id="cAll" onclick="chooseChange(event)"> <label for="c0">操作</label>
+        </th>
+        <th>姓名</th>
+        <th>语文</th>
+        <th>数学</th>
+        <th>英语</th>
+        <th>总分</th>
+    </tr>
+    <tbody id="dataRows"></tbody>
+    <tr>
+        <td colspan="6">
+            <ul id="dataPages">
+                <li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<script>
+    let data = [
+        {name: '张三', chinese: 99, math: 86, english: 66},
+        {name: '李四', chinese: 92, math: 78, english: 80},
+        {name: '王五', chinese: 88, math: 90, english: 75},
+        {name: '赵六', chinese: 95, math: 85, english: 82},
+        {name: '钱七', chinese: 78, math: 92, english: 88},
+        {name: '孙八', chinese: 85, math: 95, english: 70},
+        {name: '周九', chinese: 90, math: 88, english: 92},
+        {name: '吴十', chinese: 84, math: 82, english: 85},
+        {name: '郑十一', chinese: 91, math: 89, english: 78},
+        {name: '王十二', chinese: 87, math: 93, english: 90},
+        {name: '赵十三', chinese: 94, math: 86, english: 84},
+        {name: '孙十四', chinese: 79, math: 91, english: 76},
+        {name: '李十五', chinese: 93, math: 84, english: 81},
+        {name: '周十六', chinese: 86, math: 92, english: 89},
+        {name: '吴十七', chinese: 82, math: 87, english: 95},
+        {name: '郑十八', chinese: 89, math: 80, english: 78},
+        {name: '钱十九', chinese: 96, math: 83, english: 90},
+        {name: '张二十', chinese: 80, math: 94, english: 85},
+        {name: '李二十一', chinese: 85, math: 81, english: 92},
+        {name: '王二十二', chinese: 92, math: 79, english: 88},
+        {name: '赵二十三', chinese: 78, math: 90, english: 84},
+        {name: '孙二十四', chinese: 87, math: 76, english: 79},
+        {name: '周二十五', chinese: 90, math: 94, english: 81},
+        {name: '吴二十六', chinese: 94, math: 82, english: 87},
+        {name: '郑二十七', chinese: 81, math: 88, english: 95},
+        {name: '钱二十八', chinese: 89, math: 95, english: 79},
+        {name: '张二十九', chinese: 83, math: 78, english: 86},
+        {name: '李三十', chinese: 91, math: 85, english: 92},
+        {name: '李四', chinese: 92, math: 78, english: 80},
+        {name: '王五', chinese: 88, math: 90, english: 75},
+        {name: '赵六', chinese: 95, math: 85, english: 82},
+        {name: '钱七', chinese: 78, math: 92, english: 88},
+        {name: '孙八', chinese: 85, math: 95, english: 70},
+        {name: '周九', chinese: 90, math: 88, english: 92},
+        {name: '吴十', chinese: 84, math: 82, english: 85},
+        {name: '郑十一', chinese: 91, math: 89, english: 78},
+        {name: '王十二', chinese: 87, math: 93, english: 90},
+        {name: '赵十三', chinese: 94, math: 86, english: 84},
+        {name: '孙十四', chinese: 79, math: 91, english: 76},
+        {name: '李十五', chinese: 93, math: 84, english: 81},
+        {name: '周十六', chinese: 86, math: 92, english: 89},
+        {name: '吴十七', chinese: 82, math: 87, english: 95},
+        {name: '郑十八', chinese: 89, math: 80, english: 78},
+        {name: '钱十九', chinese: 96, math: 83, english: 90},
+        {name: '张二十', chinese: 80, math: 94, english: 85},
+        {name: '李二十一', chinese: 85, math: 81, english: 92},
+        {name: '王二十二', chinese: 92, math: 79, english: 88},
+        {name: '赵二十三', chinese: 78, math: 90, english: 84},
+        {name: '孙二十四', chinese: 87, math: 76, english: 79},
+        {name: '周二十五', chinese: 90, math: 94, english: 81},
+        {name: '吴二十六', chinese: 94, math: 82, english: 87},
+        {name: '郑二十七', chinese: 81, math: 88, english: 95},
+        {name: '钱二十八', chinese: 89, math: 95, english: 79},
+        {name: '张二十九', chinese: 83, math: 78, english: 86},
+        {name: '李四', chinese: 92, math: 78, english: 80},
+        {name: '王五', chinese: 88, math: 90, english: 75},
+        {name: '赵六', chinese: 95, math: 85, english: 82},
+        {name: '钱七', chinese: 78, math: 92, english: 88},
+        {name: '孙八', chinese: 85, math: 95, english: 70},
+        {name: '周九', chinese: 90, math: 88, english: 92},
+        {name: '吴十', chinese: 84, math: 82, english: 85},
+        {name: '郑十一', chinese: 91, math: 89, english: 78},
+        {name: '王十二', chinese: 87, math: 93, english: 90},
+        {name: '赵十三', chinese: 94, math: 86, english: 84},
+        {name: '孙十四', chinese: 79, math: 91, english: 76},
+        {name: '李十五', chinese: 93, math: 84, english: 81},
+        {name: '周十六', chinese: 86, math: 92, english: 89},
+        {name: '吴十七', chinese: 82, math: 87, english: 95},
+        {name: '郑十八', chinese: 89, math: 80, english: 78},
+        {name: '钱十九', chinese: 96, math: 83, english: 90},
+        {name: '张二十', chinese: 80, math: 94, english: 85},
+        {name: '李二十一', chinese: 85, math: 81, english: 92},
+        {name: '王二十二', chinese: 92, math: 79, english: 88},
+        {name: '赵二十三', chinese: 78, math: 90, english: 84},
+        {name: '孙二十四', chinese: 87, math: 76, english: 79},
+        {name: '周二十五', chinese: 90, math: 94, english: 81},
+        {name: '吴二十六', chinese: 94, math: 82, english: 87},
+        {name: '郑二十七', chinese: 81, math: 88, english: 95},
+        {name: '钱二十八', chinese: 89, math: 95, english: 79},
+        {name: '张二十九', chinese: 83, math: 78, english: 86},
+        {name: '张二十九', chinese: 83, math: 78, english: 86}
+    ];
+    const rows = document.getElementById('dataRows');
+    const pages = document.getElementById('dataPages');
+    let page = 1;
+    let showNumber = 10;
+
+    function showData(page, number) {
+        rows.innerHTML = '';
+        for (let i = (page - 1) * showNumber; i < page * showNumber; i++) {
+            if(i>=data.length){
+                break;
+            }
+            let stu = data[i];
+            let {name, chinese, math, english} = stu;
+            let tr = document.createElement('tr');
+            let opt = document.createElement('td');
+            opt.innerHTML = `<input type="checkbox" id="c${i}" onclick="chooseChange(event)">`;
+            tr.appendChild(opt);
+            for (let a in stu) {
+                let td = document.createElement('td');
+                td.innerText = stu[a];
+                tr.appendChild(td);
+            }
+            let score = document.createElement('td');
+            score.innerText = chinese + math + english;
+            tr.appendChild(score);
+            rows.appendChild(tr)
+        }
+
+        setPages(page);
+    }
+
+    function setPages(page) {
+        let pageTotal = 0;
+        data.length % showNumber ? pageTotal = Math.floor(data.length / showNumber) + 1: pageTotal = data.length / showNumber;
+
+        
+        
+        pages.innerHTML = '';
+        for (let i = 1; i <= pageTotal; i++) {
+            let li = document.createElement('li');
+            if (page === i) {
+                li.innerText = i;
+            } else {
+                let a = document.createElement('a');
+                a.innerText = i;
+                a.href = '#';
+                a.onclick = (e)=>{
+                    e.preventDefault();
+                    const cAll = document.getElementById('cAll');
+                    cAll.checked = false;
+                    page = parseInt(e.target.innerText);
+                    showData(page, showNumber);
+                };
+                li.appendChild(a);
+            }
+            pages.appendChild(li);
+        }
+    }
+
+    function chooseChange(event){
+        const checkboxs = document.querySelectorAll('#dataRows input[type=checkbox]');
+        const cAll = document.getElementById('cAll');
+        if(event.target === cAll){
+            checkboxs.forEach(item=>{
+                item.checked = cAll.checked;
+            })
+            return;
+        }
+        let isAllChecked = true;
+        for(let item of checkboxs){
+            if(!item.checked){
+                isAllChecked = false;
+                break;
+            }
+        }
+        cAll.checked = isAllChecked;
+    }
+
+    showData(page, showNumber);
+
+</script>
+</body>
+</html>

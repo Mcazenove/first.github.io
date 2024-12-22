@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        b=+prompt("请输入一个三位数判断是否为水仙花数");
+       
+        function  a(num){
+            let  c="ww";
+            
+            let e=66;
+           if(num>100){
+            // 十位的另一种表达num/10%10
+            if(Math.pow((num%10),3)+ Math.pow(parseInt((num%100-num%10)/10),3)+ Math.pow(Math.floor(num/100),3)==num)
+            {
+                alert("该数是水仙花数");
+                return turn;
+            
+            }
+            else{
+                alert("该数不是水仙花数");
+               return  false;
+            
+            }
+           }
+           else{
+            alert("输入错误该数不是水仙花数");
+           }
+           
+          
+          
+           
+          
+        }
+        document.write( a(b));
+        document.write(Math.pow((b%10),3))
+
+        
+    </script>
+
+
+</body>
+</html>

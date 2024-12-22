@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+        }
+        .all{
+            height: 150px;
+            position: relative;
+        }
+        .img{
+             width:100px;
+             height: 100px;
+        }
+        .top{
+            width: 90%;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 100px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        .right{
+            width: 275px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .u1 li{
+            list-style: none;
+            width: 40px;
+            float: left;
+            list-style: none;
+            border-right: 2px black solid;
+            text-align: center;
+            font-size: 13px;
+        }
+        p{width: 70px;
+            position: absolute;
+            top: 10px;
+        }
+        input{
+            position: absolute;
+            width:150px ;
+            height: 18px;
+            top:26px;
+            left: 70px;
+        }
+        button{
+            width: 38px;
+            height: 24px;
+            position: absolute;
+            top: 26px;
+            left: 230px;
+        }
+        .f1{position: absolute;
+            top:35px;
+            right: 0;
+
+        }
+        .u1 .abc{
+            border-right: 0;
+        }
+        .foot{
+            width: 100%;
+            height: 50px;
+            background-color: darkgray;
+            position:absolute;
+            bottom: 0;
+        }
+        .u2 li{
+            list-style: none;
+            width: 200px;
+            height: 50px;
+            foot: 20px;
+            position: absolute;
+            bottom:0;
+            list-style: none;
+            text-align: center;
+            font-size: 20px;
+            line-height: 50px;
+
+        }
+        .u2 .aa1{
+            color:black;
+            font-weight: bold;
+        }
+        .u2 .aa1:hover li{
+            width: 200px;
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+       .bb1{
+           position: absolute;
+           left: 0;
+       }
+       .bb2{
+           position: absolute;
+           left: 200px;
+       }
+       .bb3{
+           position: absolute;
+           left: 400px;
+       }
+    </style>
+
+</head>
+<body>
+<div class="all">
+    <div ><img src="../相对/图片/logo.jpg"class="img"> </div>
+    <div class="top"><h1>HTML+CSS网站建设科技有限公司</h1>
+        <div class="right">
+       <p>站内搜索:</p>
+            <input type="text"><button>GO!</button>
+            <div class="f1">
+            <ul class="u1">
+                <li ><a href="#">登录</a></li>
+                <li class="abc"><a href="#">注册</a></li>
+            </ul>
+                </div>
+        </div>
+    </div>
+    <div class="foot">
+        <ul class="u2">
+            <a href="#" class="aa1"><li class="bb1">核心业务</li></a>
+            <a href="#" class="aa1"><li class="bb2">新闻动态</li></a>
+            <a href="#" class="aa1"><li class="bb3">关于我们</li></a>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

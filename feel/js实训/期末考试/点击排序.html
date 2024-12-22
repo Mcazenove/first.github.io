@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.xz{
+    background-color: aliceblue;
+}
+        
+    </style>
+
+</head>
+<body>
+    <input type="submit"  title="提交" class="xz">
+    <script>
+        let arr1=[]
+        for(let i=0;i<6;i++){
+            let  n=Math.floor(Math.random()*100)
+            arr1.push(n)
+            document.write(n+"&nbsp")
+        }
+        // 用于捕获标签
+       hq=document.querySelector(".xz");
+    //    用于交换
+       let jh=0;
+       hq.onclick=function  (){
+        // 点击后实行冒泡排序
+        for(let i=0;i<arr1.length-j-1;i++){
+            for(let j=0;j<arr1.length-1;j++){
+                if(arr1[i]>arr1[i+1]){
+                    jh=arr1[i+1];
+                    arr1[i+1]=arr1[i];
+                    arr1[i]=jh;
+
+                }
+            }
+
+
+        }
+        document.write("排序后的效果")
+        for(i=0;i<arr1.length;i++){
+            document.write(arr1[i]+" &nbsp")
+        }
+       }
+
+    </script>
+</body>
+</html>

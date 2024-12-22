@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <link type="text/css" rel="stylesheet" href="表单.css" />
+</head>
+<body>
+<div id="input">
+    姓名：
+    <input type="text" id="name" placeholder="请输入姓名"><br>
+    年龄：
+    <input type="text" id="age" placeholder="请输入年龄"><br>
+    性别：
+    <input type="radio" name="gender" id="man" value="男"><label for="man">男</label>
+    <input type="radio" name="gender" id="woman" value="女"><label for="woman">女</label><br>
+    <button id="addButton">添加</button>
+</div>
+<table id="dataTable">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>mc</td>
+        <td>20</td>
+        <td>man</td>
+        <td><button class="deleteButton">删除</button></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
+<script>
+    document.getElementById('addButton').addEventListener('click', function() {
+        var name = document.getElementById('name').value;
+        var age = document.getElementById('age').value;
+        var gender = document.querySelector('input[name="gender"]:checked');
+
+        if (name === '' || age === '' || gender === null) {
+            alert('请填写完整的表单信息');
+            return;
+        }
+
+        var genderValue = gender.value;
+        var table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+        var newRow = table.insertRow();
+        
+        var nameCell = newRow.insertCell(0);
+        var ageCell = newRow.insertCell(1);
+        var genderCell = newRow.insertCell(2);
+        var actionCell = newRow.insertCell(3);
+        
+        nameCell.textContent = name;
+        ageCell.textContent = age;
+        genderCell.textContent = genderValue;
+
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = '删除';
+        deleteButton.className = 'deleteButton';
+        deleteButton.addEventListener('click', function() {
+            table.removeChild(newRow);
+        });
+        actionCell.appendChild(deleteButton);
+
+        document.getElementById('name').value = '';
+        document.getElementById('age').value = '';
+        document.querySelector('input[name="gender"]:checked').checked = false;
+    });
+
+    var deleteButtons = document.getElementsByClassName('deleteButton');
+    Array.from(deleteButtons).forEach(function(button) {
+        button.addEventListener('click', function() {
+            var row = this.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        });
+    });
+</script>

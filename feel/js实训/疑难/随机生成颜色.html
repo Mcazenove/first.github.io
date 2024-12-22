@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let  arr=[13,23,114,216,'ff','aa','cc','ee']
+        function main(TF){
+            if(TF){
+                let  str1=arr[ Math.floor( Math.random()*(arr.length-4))+4]
+                let  str2=arr[ Math.floor( Math.random()*(arr.length-4))+4]
+                let  str3=arr[ Math.floor( Math.random()*(arr.length-4))+4]
+                return  `#${str1}${str2}${str3}`
+            }
+            else{
+                let number1=arr[ Math.floor( Math.random()*(arr.length-4))]
+                let number2=arr[ Math.floor( Math.random()*(arr.length-4))]
+                let number3=arr[ Math.floor( Math.random()*(arr.length-4))]
+                return `rgb(${number1},${number2},${number3})`
+            }
+            }
+           
+            document.write(main(true))
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

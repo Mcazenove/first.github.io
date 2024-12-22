@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="排序.css" />
+</head>
+<body>
+<ul id="list"></ul>
+<button id="sortButton">排序</button>
+
+</body>
+</html>
+<script>
+    const list = document.getElementById('list');
+    const sortButton = document.getElementById('sortButton');
+    let arr = [];
+    
+    // 数组随机添加10个整数
+    for (let i = 0; i < 10; i++) {
+        let number1 = Math.floor(Math.random() * 100);
+        arr.push(number1);
+        // 将 number 放到 list 中
+        let li = document.createElement('li');
+        li.innerText = number1;
+        list.appendChild(li);
+    }
+
+    // 添加排序按钮点击事件
+    sortButton.addEventListener('click', function() {
+        // 对数组进行排序
+        arr.sort((a, b) => a - b);
+        // 清空列表
+        list.innerHTML = '';
+        // 将排序后的数组更新到列表中
+        arr.forEach(number1 => {
+            let li = document.createElement('li');
+            li.innerText = number1;
+            list.appendChild(li);
+        });
+    });
+
+    console.log(arr);
+</script>

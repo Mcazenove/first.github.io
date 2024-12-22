@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let  arr=[2,3,4,true,"flas",'ke']
+        // 删除数组的最后一个元素
+        arr.pop()
+        document.write(arr+"  ")
+        arr.push('wwe')
+        // 在数组的最后添加元素
+        document.write(arr)
+        // 查找数组第一位元素
+        document.write(arr.indexOf(3))
+        arr.push(3)
+    // 查找数组最后一位元素
+    document.write(arr.lastIndexOf(3))
+
+        // 截取数据
+      let arr1=  arr.slice(2,5)
+        document.write(arr1)
+        // 将数组转换为字符串，括号中填入需要用什么东西隔开元素
+        document.write(arr.join("--"))
+        // 逆转数组
+        document.write(arr.reverse())
+        // 合并数组
+        let a1=[23,67,"ww",55]
+        let a2=[4,55,'t','tt']
+        let all=a1.concat(a2)
+        document.write(all)
+        // 删除或者增加,括号中第一个数子为要增加的数量的位置，第二个数为要删除的数量，后面写要添加的具体元素
+        a1.splice(2,1,"ee","pp")
+        document.write(a1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

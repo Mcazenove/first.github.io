@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .d0{
+            position: absolute;
+            top: 33px;
+            left: 303px; 
+        }
+        .d1{
+            /* 定位分为相对定位，绝对定位，固定定位，和默认的静态定位 */
+            /* 相对原来的位置变化，不会脱离文本流（相对默认static的位置还是会被占据） */
+            /* 此时可以看出效果的图覆盖在其他图的上面 */
+            /* 若是父级没有定位则根据body定位 */
+            position: relative;
+           
+            /* 离原来的位置的距离 */
+            top: 33px;
+            left: 33px;
+        }
+        .d2{
+            /* 定位分为相对定位，绝对定位，固定定位，和默认的静态定位 */
+            /* 绝对 定位：脱离文本流，相对于上一级有定位的标签来定位*/
+            /* 若是父级没有定位则根据body定位 */
+            position: absolute;
+            
+            /* 离原来的位置的距离 */
+            top: 33px;
+            right: 33px;
+        }
+
+        .d3{
+            position: relative;
+            /* 在定位后的基础上，可以控制位置  z-index可以控制垂直高度*/
+            
+            z-index: -10;
+            top: 66px;
+            right: 15px;
+        }
+        .d4{
+            /* 在定位后的基础上，可以控制位置 */
+            position: fixed;
+            top: 66px;
+            left: 15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div style="background-color:red;width: 500px; " class="d0" >
+        <div  style="background-color: aqua;height: 70px;width: 66px;  " class="d1">111</div>
+        <div style="background-color: pink;height: 150px;width: 66px; " class="d2">222</div>
+        <div style="background-color: rgb(68, 52, 55);height: 150px;width: 66px;  " class="d3">333</div>
+        <div style="background-color: rgb(68, 52, 55);height: 150px;width: 66px;  " class="d4">444</div>
+        <p>相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+            相对定位<hr>
+
+            相对定位<hr>
+            相对定位<hr>
+
+            相对定位<hr>
+            相对定位<hr>
+
+        </p>
+        <div style="background-color: rgb(44, 42, 42);height: 150px;width: 66px;  " class="d5">555</div>
+    </div>
+</body>
+</html>

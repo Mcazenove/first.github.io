@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // json可以传输数组，属性，对象，以及对象类数组
+        let json='{"name":"web","age":18,"lx":{"wst":234,"age":23},"her":[{"jk":"wdw"},{"wer":"wdw"}],"arr":[2,3,4,5,6]  }'
+      let  xx=JSON.parse(json)  
+      document.write(json)
+      document.write(xx.name)
+      document.write(xx.lx.wst)
+      document.write(xx.her[0].jk)
+      document.write(xx.arr[3])
+      console.log(xx);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1=+prompt('请输入数字1')
+        let num2=+prompt('请输入数字2')
+        let n=prompt('请输入运算符+-*/')
+        switch(n){
+            case '+':
+                alert(`计算结果为${num1+num2}`)
+                break
+                case '-':
+                alert(`计算结果为${num1-num2}`)
+                break
+                case '*':
+                alert(`计算结果为${num1*num2}`)
+                break
+                case '/':
+                alert(`计算结果为${num1/num2}`)
+                break
+                default:
+                    alert('无法计算')
+        }
+    </script>
+</body>
+</html>

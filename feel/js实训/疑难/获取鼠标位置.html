@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .d1{
+            height: 500px;
+            background-color: pink;
+        }
+        .d2{
+            height: 150px;
+            background-color: rgb(80, 141, 102);
+            width: 150px;
+            margin: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div  class="d1">
+
+        <div  class="d2">ks</div>
+    </div>
+
+</body>
+</html>
+<script>
+    let  wz=document.querySelector(".d2");
+    document.onmousemove=function  (event){  
+        let e=event||window.event;
+        // 短路语法进行兼容
+        wz.innerHTML  +="screenX"+screenX+"screenY"+screenY+"<br>";
+
+        
+      }
+
+</script>

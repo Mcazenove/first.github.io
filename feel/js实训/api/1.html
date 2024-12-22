@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>拖放图片和文字</title>
+    <style>
+        #dropZone {
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #000;
+            text-align: center;
+            line-height: 200px;
+        }
+        .draggable {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dragImage" class="draggable" draggable="true" ondragstart="dragStart(event)" data-type="image">拖动图片</div>
+<div id="dragText" class="draggable" draggable="true" ondragstart="dragStart(event)" data-type="text">拖动文字</div>
+
+<div id="dropZone" ondragover="allowDrop(event)" ondrop="drop(event)">拖放的区域</div>
+
+<script>
+function dragStart(event) {
+    const dataType = event.target.getAttribute("data-type");
+    event.dataTransfer.setData("text/plain", event.target.id);
+    event.dataTransfer.setData("data-type", dataType);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text/plain");
+    const dataType = event.dataTransfer.getData("data-type");
+    let element;
+    if (dataType === "text") {
+        element = document.createTextNode(document.getElementById(data).textContent);
+    } else if (dataType === "image") {
+        element = new Image();
+        element.src = "../../相对/图片/05.jpg"; 
+    }
+    event.target.appendChild(element);
+}
+</script>
+
+</body>
+</html>

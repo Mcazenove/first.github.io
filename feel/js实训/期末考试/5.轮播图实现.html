@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <link type="text/css" rel="stylesheet" href="lbt.css" />
+</head>
+<body>
+    <div id="slideshow">
+        <div class="slide">
+            <img src="biyegehui.jpg" alt="Slide 1">
+            <div class="title">b站毕业歌会</div>
+        </div>
+        <div class="slide">
+            <img src="duanwu.png" alt="Slide 2">
+            <div class="title">端午奇妙游</div>
+        </div>
+        <div class="slide">
+            <img src="manfenwutai.jpg" alt="Slide 3">
+            <div class="title">快乐崇拜，永远22！</div>
+        </div>
+        <div class="slide">
+            <img src="qumingtian.png" alt="Slide 4">
+            <div class="title">毕业歌会，去明天</div>
+        </div>
+        <div class="indicator">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+        <a class="prev" onclick="previousImage()">&#10094;</a>
+        <a class="next" onclick="nextImage()">&#10095;</a>
+    </div>
+
+    
+</body>
+</html>
+<script>
+    var slideIndex = 0;
+    var slides = document.getElementsByClassName("slide");
+    var dots = document.getElementsByClassName("dot");
+
+    function showImage(index) {
+        if (index >= slides.length) { slideIndex = 0 }
+        if (index < 0) { slideIndex = slides.length - 1 }
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.opacity = 0;
+            slides[i].style.display = "none";
+        }
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex].style.display = "block";
+        setTimeout(() => {
+            slides[slideIndex].style.opacity = 1;
+        }, 50);
+        dots[slideIndex].className += " active";
+    }
+
+    function nextImage() {
+        slideIndex++;
+        showImage(slideIndex);
+    }
+
+    function previousImage() {
+        slideIndex--;
+        showImage(slideIndex);
+    }
+
+    function currentSlide(index) {
+        slideIndex = index;
+        showImage(slideIndex);
+    }
+
+    function autoSlide() {
+        slideIndex++;
+        showImage(slideIndex);
+         // 设置切换的时间3秒
+    
+        setTimeout(autoSlide, 3000);}
+
+    showImage(slideIndex);
+    autoSlide();
+</script>

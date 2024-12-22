@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Echarts 面积堆叠图示例</title>
+  <!-- 引入 Echarts 库 -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+</head>
+
+<body>
+  <!-- 为图表准备一个具有大小的 DOM -->
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    // 基于准备好的 DOM，初始化 echarts 实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['搜狐', '网易', '新浪','qq']
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['一月', '二月', '三月', '四月', '五月']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: '搜狐',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [1000, 2500, 2200, 3800, 4500]
+        },
+        {
+          name: '网易',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [2000, 3900, 2200, 4800, 1500]
+        },
+        {
+          name: '新浪',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [5000, 3500, 2200, 5800, 1500]
+        },
+        {
+          name: 'qq',
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: [7000, 3500,4200, 1800, 8500]
+        }
+      ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>

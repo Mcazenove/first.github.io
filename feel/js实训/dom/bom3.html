@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bom3.html</title>
+    <script>
+        function displayUsers() {
+            var users = localStorage.getItem("users");
+            if (users) {
+                users = JSON.parse(users);
+                var table = document.createElement("table");
+                var tr, td;
+                for (var i = 0; i < users.length; i++) {
+                    tr = document.createElement("tr");
+                    td = document.createElement("td");
+                    td.innerHTML = users[i].username;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.innerHTML = users[i].password;
+                    tr.appendChild(td);
+                    table.appendChild(tr);
+                }
+                document.body.appendChild(table);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>显示页面 </h1>
+    <button onclick="displayUsers()">显示当前所有用户</button>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 立即执行函数方式1
+        (function(q,e){document.write(`立即执行函数1:${q+e}`)}(3,6));
+         // 立即执行函数方式2,立即执行函数后面需用分号来结束
+         (function( i,q){document.write(`立即执行函数2:${q+i}`)})(3,4);
+        //  函数表达式,区别于函数的点在于，不可在函数构造前使用，因为添加了let就算是变量，没声明前，无法使用
+        // f(2,4)
+        let  f=function(e,r){document.write(`vgqadfqa:${e+r}`)}
+        f(4,5)
+    </script>
+
+
+
+</body>
+</html>

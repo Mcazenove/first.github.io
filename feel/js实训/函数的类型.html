@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 具象函数可以在其语法前调用，匿名函数不能（因为变量只能先声明后使用）
+        ja()
+function  ja(){
+    // alert输出具体的对话框
+    alert("我是具象函数")
+    document.write("我是具象函数");
+}
+ja()
+let dev=function(){
+    alert("我是匿名函数")
+    document.write("我是匿名函数");
+}
+dev();
+    </script>
+</body>
+</html>

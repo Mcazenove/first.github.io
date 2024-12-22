@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECharts Treemap Example</title>
+    <!-- 引入 ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div id="main" style="width:800px;height:600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom,初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            series: [{
+                type: 'treemap',
+                data: [{
+                    name: "GDP",
+                    value: 100,
+                    children: [
+                         {name: '其他', value: 55},
+                        {name: '长沙', value: 20},
+                        {name: '株洲', value: 10},
+                        {name: '湘潭', value: 5}, 
+                        {name: '岳阳', value: 5}, 
+                        {name: '衡阳', value: 5}
+                        
+                    ]
+                }]
+            }]
+        };
+
+        // 注意：JavaScript是大小写敏感的，这里应该是setOption
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

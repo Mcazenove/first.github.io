@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bom2.html</title>
+    <script>
+        function addUser() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username && password) {
+                var users = localStorage.getItem("users");
+                if (!users) {
+                    users= [];
+                } else {
+                    users = JSON.parse(users);
+                }
+                users.push({username: username, password: password});
+                localStorage.setItem("users", JSON.stringify(users));
+                alert("用户添加成功");
+                window.location.href = "bom3.html";
+            } else {
+                alert("请输入用户名和密码");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>添加页面</h1>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <br><br>
+    <button onclick="addUser()">Add User</button>
+</body>
+</html>

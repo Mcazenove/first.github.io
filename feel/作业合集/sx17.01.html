@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        ul{width:220px;
+            height:220px;
+            position: relative;
+            margin-left: 400px;
+            margin-top: 300px;
+        }
+        li{
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform-origin: top left;
+            transition: all 2s;
+        }
+        ul:hover li:first-child{
+            transform: rotate(60deg);
+        }
+        ul:hover li:nth-child(2){
+            transform: rotate(120deg);
+        }
+        ul:hover li:nth-child(3){
+            transform: rotate(180deg);
+        }
+        ul:hover li:nth-child(4){
+            transform: rotate(240deg);
+        }
+        ul:hover li:nth-child(5){
+            transform: rotate(300deg);
+        }
+        ul:hover li:last-child{
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <Li><img src="../相对/图片/index6.png" height="300" width="200" /></Li>
+        <Li><img src="../相对/图片/index7.png" height="300" width="200" /></Li>
+        <Li><img src="../相对/图片/index8.png" height="300" width="200" /></Li>
+        <Li><img src="../相对/图片/index6.png" height="300" width="200" /></Li>
+        <Li><img src="../相对/图片/index7.png" height="300" width="200" /></Li>
+        <Li><img src="../相对/图片/index8.png" height="300" width="200" /></Li>
+    </ul>
+</body>
+</html>
+

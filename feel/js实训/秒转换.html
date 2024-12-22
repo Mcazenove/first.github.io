@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let  second=parseInt(prompt('请输入秒数'))
+
+        if(second>=0){
+            if(second==0){
+                document.write(`时间为00:00:00`)
+            }
+            else  if(second<60){
+                document.write(`时间为：00:00:${second}:`)
+            }
+            else if(second>=60&&second<3600){
+                document.write(`时间为：00:${parseInt( second/60)}:${second%60}`)
+            }
+            else  if(second>=3600&&second<3600*24){
+                document.write(`时间为:${parseInt(second/3600%24)}:${ parseInt( second/60%60)}:${second%60}`)
+                
+            }
+            else{
+                document.write(`时间为:${parseInt(second/3600/24)}天${parseInt(second/3600%24)}:${ parseInt( second/60%60)}:${second%60}`)
+            }
+
+        }
+
+    </script>
+</body>
+</html>

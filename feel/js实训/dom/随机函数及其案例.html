@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Random number generator function
+        function getNumber(a, b) {
+            return Math.floor(Math.random() * (b - a + 1)) + a;
+        }
+
+        let a1 = getNumber(0, 10);
+        document.write(a1);
+
+        for (let i = 0; i < 3;i++) {
+            let guess =+prompt('请输入1-10');
+            if(guess > a1) {
+                alert("猜大了");
+            } else if (guess < a1) {
+                alert("你猜小了");
+            } else {
+                alert("你猜对了");
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+</body>
+</html>

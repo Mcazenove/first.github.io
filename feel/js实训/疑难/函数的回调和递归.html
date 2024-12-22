@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数递归
+        let q=function(){};
+        function w(){
+                document.write("www")
+            }
+        function  ee(a,b,c ){
+            document.write("金戈铁骑，&nbsp老韩无敌     "+"&nbsp")
+
+           
+            
+            
+            w()
+            // 函数回调 recall（） 相当于 let q=function(){};
+            document.write(c)
+        }
+        function  dg(i){
+            document.write("dg&nbsp&nbsp&nbsp")
+            if(i<=0){
+                return  0;
+            }
+            dg(i-1);
+        }
+        dg(3);
+        ee(5,Math,function(){document.write("回调函数")});
+
+        
+    </script>
+</body>
+</html>

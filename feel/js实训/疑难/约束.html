@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let b=+prompt("请输入数字")
+        let sum=0;
+       isyueshu(b)
+        function  isyueshu(num){
+            for(let i=0;i<num;i++){
+                if(num%i==0){
+                    sum+=i
+                }
+   
+            }
+            if(sum==num)
+            {
+                        alert("这个数是完美数字")
+
+            }
+            else{
+                alert("这个数不是完美数字")
+            }
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .city select {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="city">
+    <select name="provinceName" id="provinceName">
+        <option value="">请选择省份</option>
+    </select>  
+    <select name="cityName" id="cityName">
+        <option value="">请先选择省份</option>
+    </select>
+</div>
+<script>
+    const province = document.getElementById('provinceName');
+    const city = document.getElementById('cityName');
+    let citys = null;
+    fetch('./city.json').then(res => res.json()).then(res => {
+        citys = res.provinces;
+        for (let p of citys) {
+            const op = new Option();
+            op.value = op.innerHTML = p.provinceName;
+            province.appendChild(op);
+        }
+    });
+
+
+    province.onchange = function () {
+        if(province.value === ''){
+            city.innerHTML = '<option>请先选择省份</option>';
+            return;
+        }else{
+            city.innerHTML = '<option>请选择城市</option>'
+        }
+        let prov = citys.filter(item => item.provinceName === province.value);
+        let chooseCity = prov[0].citys;
+        for(let c of chooseCity){
+            const op = new Option();
+            op.value = op.innerHTML = c.cityName;
+            city.appendChild(op);
+        }
+    }
+</script>
+
+
+</body>
+</html>

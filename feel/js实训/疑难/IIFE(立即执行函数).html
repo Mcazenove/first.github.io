@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 表达式形式函数：表达式形式函数后面加（）表示立即执行
+        let a= function(){document.write("表达式形式函数(立即执行)：a&nbsp")}();
+        // 关键字函数需要转化为表达式形式函数，才能立即执行，
+        // 在前加1.+，2.-，3.！或者用（）包起来，最后再加（）即可立即执行
+        +function  b(){
+            document.write("关键字函数需要转化为表达式形式函数b(立即执行)：b&nbsp")
+        }();
+        -function c(){
+            document.write("关键字函数需要转化为表达式形式函数c(立即执行)：c&nbsp")
+        }();
+        !function d(){
+            document.write("关键字函数需要转化为表达式形式函数d(立即执行)：d&nbsp")
+        }();
+        (function e(){
+            document.write("关键字函数需要转化为表达式形式函数（）(立即执行)：e&nbsp")
+        }());
+
+    </script>
+</body>
+</html>

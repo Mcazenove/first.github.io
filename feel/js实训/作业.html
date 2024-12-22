@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function(){
+    var cav = document.getElementById('myCanvas');
+    cav.width = document.documentElement.clientWidth;
+    cav.height = document.documentElement.clientHeight;
+
+    var ctx = cav.getContext('2d');
+    var artists = [];
+
+    function Ball(x,y,r,color,vx,vy){
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.color = color;
+        this.vx = vx;
+        this.vy = vy;
+
+        artists.push(this);
+
+        this.move = function(){
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vy++;
+            this.r -= 0.2;
+        };
+
+        this.show = function(){
+            ctx.beginPath();
+            ctx.fillStyle = this.color;
+            ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+            ctx.closePath();
+            ctx.fill();
+        };
+
+    }
+
+    function removeBall() {
+        let len = artists.length;
+        for(let i=0;i<len;i++){
+            if(artists[i].r<0.01)
+            {
+                artists.splice(i,1);
+                i--;
+                len--;
+            }
+        }
+    }
+
+    function stage(){
+        let len = artists.length;
+        console.log(len);
+        ctx.clearRect(0,0,cav.width,cav.height);
+        for(let i=0;i<len;i++){
+            artists[i].show();
+            artists[i].move();
+        }
+        removeBall();
+    }
+
+    setInterval(function(){
+        stage();
+    },30);
+
+    window.onmousemove = function (e) {
+        let r = Math.random()*5 + 5;
+        let red = Math.floor(Math.random()*255);
+        let green = Math.floor(Math.random()*255);
+        let blue = Math.floor(Math.random()*255);
+        let color = 'rgba('+red+','+green+','+blue+',0.8)';
+        let vx = Math.floor(Math.pow(-1,Math.floor(Math.random()*1000))*Math.random()*8);
+        let vy = -Math.floor(Math.random()*10);
+        new Ball(e.clientX,e.clientY,r,color,vx,vy);
+    }
+};
+    </script>
+</body>
+</html>

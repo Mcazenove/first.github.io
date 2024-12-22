@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #ee{
+        height: 550px;
+    }
+    .lm{
+        height: 55px;
+    }
+
+    </style>
+</head>
+<body id="ee">
+    <ul>
+        <li>    1   </li>
+        <li>   2  </li>
+        <li class="lm">    3   </li>
+        <li>    4   </li>
+    </ul>
+</body>
+</html>
+<!-- script写在最后防止有些标签还未执行，导致获取不到 -->
+ <!-- 标签实质上就是个引用数据类型 -->
+<script>
+    // 通过id名获取标签
+    console.log(document.getElementById("ee"));
+    // 通过class名获取
+    console.log(document.getElementsByClassName("lm"));
+      // 通过标签名字获取
+      console.log(document.getElementsByName("ul"))
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+   
+    <script>
+        let  arr=[]
+        // 增1
+        arr[0]="jack"
+        document.write(arr[0])
+        // 增2
+        let  arr1=[3,5,6,7]
+        for(let i=0;i<arr1.length;i++){
+            arr1[i]=arr1[i]+55
+            document.write(arr1[i]+" ")
+        }
+        console.log(arr1);
+        // 从前面增加任意个数的元素，33，67
+        console.log(arr1.unshift(33,67));
+       
+        // 从数组后面添加
+        console.log(arr1.push(555,6666,77777))
+
+    </script>
+</body>
+</html>
